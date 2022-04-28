@@ -5,9 +5,10 @@
 This repo hast a getting starter with some configuration already seted up as nodemon, babel
 
 Add:
-npm install bcrypt
-npm install dotenv -- to use env variables
-npm install jsonwebtoken
+
+- npm install bcrypt
+- npm install dotenv -- to use env variables
+- npm install jsonwebtoken
 
 To use environment variables creating the file .env
 and adding this line into your package.json [-r dotenv/config]
