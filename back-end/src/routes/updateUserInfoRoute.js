@@ -5,12 +5,12 @@ import { ObjectID } from "mongodb";
 import { getDbConnection } from "../db";
 
 export const updateUserInfoRoute = {
-  path: "/api/login",
-  method: "post",
+  path: "/api/users/:userId",
+  method: "put",
   handler: async (req, res) => {
     const { authorization } = req.headers;
     const { userId } = req.params;
-
+    console.log("req.body", req.body);
     const updates = ({ favoriteFood, hairColor, bio }) =>
       ({
         favoriteFood,
