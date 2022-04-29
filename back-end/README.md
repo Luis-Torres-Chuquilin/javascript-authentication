@@ -10,6 +10,8 @@ Add:
 - npm install dotenv -- to use env variables
 - npm install jsonwebtoken
 
+- npm install uuid -- to generate codes
+
 To use environment variables creating the file .env
 and adding this line into your package.json [-r dotenv/config]
 "start": "nodemon ... -r dotenv/config ./src/server.js"

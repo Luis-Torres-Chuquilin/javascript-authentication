@@ -4,6 +4,7 @@ import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
 import { UserInfoPage } from "./pages/UserInfoPage";
 import { LogInPage } from "./pages/LogInPage";
 import { SignUpPage } from "./pages/SignUpPage";
+import { PleaseVerifyEmailPage } from "./pages/PleaseVerifyEmailPage";
 // Private Routes
 import { PrivateRoute } from "./auth/PrivateRoute";
 
@@ -16,6 +17,9 @@ export const Routes = () => {
         </PrivateRoute>
         <Route path="/login">
           <LogInPage />
+        </Route>
+        <Route path="/please-verify">
+          <PleaseVerifyEmailPage />
         </Route>
         <Route path="/signup">
           <SignUpPage />

@@ -21,9 +21,11 @@ export const SignUpPage = () => {
       email: emailValue,
       password: passwordValue,
     });
+    // it the response is not suscessfull it wont conitnue with the rest of the code
     const { token } = response.data;
     setToken(token);
-    history.push("/");
+
+    history.push("/please-verify");
   };
 
   return (

@@ -12,8 +12,9 @@ export const testEmailRoute = {
         to: "emailtest@gmail.com",
         from: "email@gmail.com",
         subject: "Does this work",
-        test: "If your're reading this ... yes confirmed!",
+        text: "If your're reading this ... yes confirmed!",
       });
+      res.sendStatus(200);
     } catch (err) {
       console.log("error in mail", err);
       res.sendStatus(500);
