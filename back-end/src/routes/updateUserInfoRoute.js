@@ -35,10 +35,11 @@ export const updateUserInfoRoute = {
           .status(403)
           .json({ message: "Not allowed to update that user's " });
 
-      if (!isVerified)
-        return res
-          .status(403)
-          .json({ message: "You need to verify your email before you update" });
+      // if (!isVerified)
+      //   return res
+      //     .status(403)
+      //     .json({ message: "You need to verify your email before you update" });
+
       const db = getDbConnection("react-auth-db");
       const result = await db.collection("users").findOneAndUpdate(
         { _id: ObjectID(id) },
