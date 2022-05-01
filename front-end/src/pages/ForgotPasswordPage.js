@@ -22,12 +22,13 @@ export const ForgotPasswordPage = () => {
     }
   };
   return success ? (
-    <div>
+    <div className="content-container">
       {" "}
       <h1> Success</h1>
+      <p>Check your email for a reset link</p>
     </div>
   ) : (
-    <div>
+    <div className="content-container">
       {" "}
       <h1>Forgot Password</h1>
       <p> Enter your email and we'll send you a reset link</p>
