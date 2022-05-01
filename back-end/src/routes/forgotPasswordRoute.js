@@ -8,7 +8,7 @@ export const ForgotPassworRoute = {
   path: "/api/forgot-password/:email",
   method: "put",
   handler: async (req, res) => {
-    const { email } = req.parms;
+    const { email } = req.params;
 
     const db = getDbConnection("react-auth-db");
     const passwordResetCode = uuid();
@@ -24,16 +24,16 @@ export const ForgotPassworRoute = {
       try {
         await sendEmail({
           to: email,
-          from: "email@gmail.com",
+          from: "Luis.Chuquilin@Student.Torrens.edu.au",
           subject: "Password reset",
           text: ` To reset your password, click this link:
-          hhtp://localhost:3000/reset-password/${passwordResetCode}`,
+          http://localhost:3000/reset-password/${passwordResetCode}`,
         });
       } catch (e) {
         console.log(e);
         res.sendStatus(500);
       }
     }
-    res.sendStatus(200);
+    res.sendStatus(200); // we send the res.sendStatus(200) , to avoid hackers to know it the email exist or not.
   },
 };

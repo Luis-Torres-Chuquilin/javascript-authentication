@@ -9,8 +9,8 @@ export const testEmailRoute = {
     try {
       console.log("received");
       await sendEmail({
-        to: "emailtest@gmail.com",
-        from: "email@gmail.com",
+        to: "letorres.ch@gmail.com",
+        from: "Luis.Chuquilin@Student.Torrens.edu.au",
         subject: "Does this work",
         text: "If your're reading this ... yes confirmed!",
       });

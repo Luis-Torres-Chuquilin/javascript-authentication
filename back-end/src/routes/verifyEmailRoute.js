@@ -2,6 +2,7 @@
 
 import { getDbConnection } from "../db";
 import { ObjectID } from "mongodb";
+import jwt from "jsonwebtoken";
 
 export const verifyEmailRoute = {
   path: "/api/verify-email",
@@ -9,6 +10,8 @@ export const verifyEmailRoute = {
   handler: async (req, res) => {
     const { verificationString } = req.body;
     const db = getDbConnection("react-auth-db");
+
+    //  itentified if verifactionString exist in our database
     const result = await db.collection("users").findOne({
       verificationString,
     });
@@ -20,6 +23,7 @@ export const verifyEmailRoute = {
 
     const { _id: id, email, info } = result;
 
+    //  update the user isVerified = true
     await db.collection("users").updateOne(
       { _id: ObjectID(id) },
       {
@@ -27,6 +31,7 @@ export const verifyEmailRoute = {
       }
     );
 
+    // send the new token with the updated user's data
     jwt.sign(
       { id, email, isVerified: true, info },
       process.env.JWT_SECRET,

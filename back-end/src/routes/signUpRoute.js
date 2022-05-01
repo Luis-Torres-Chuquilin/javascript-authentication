@@ -18,8 +18,7 @@ export const signUpRoute = {
       res.sendStatus(409);
     }
 
-    // encript the password - two arguments, the plaint text password,
-    // and the number of iterations
+    // arguments, the plaint text password, and the number of iterations
     const passwordHash = await bcrypt.hash(password, 10);
 
     // create a verification String
@@ -40,34 +39,34 @@ export const signUpRoute = {
         passwordHash,
         info: startingInfo,
         isVerified: false,
-        // verificationString
+        verificationString,
       });
       console.log("user created");
       // it's not controlling the duplicate emails at this point
     } catch (error) {
-      console.log("error", error);
+      console.log("error during the creation of user", error);
     }
 
-    const { insertedId } = result;
+    console.log(result);
+    const { insertedId } = result; //  interedId = _id created in mongodb.
 
-    //  I don't have token to sendEmail, the next try catch statement is in hold
-    // try {
-    //   await sendEmail({
-    //     to: email,
-    //     from: "email@gmail.com",
-    //     subject: "Plesase verify your email",
-    //     text: `Thanls for signing up! To verify your email, please clicl here:
-    //      http://localhost:3000/verift-email/${verificationString}
-    //      `,
-    //   });
-    // } catch (err) {
-    //   console.log("Error in sending Email Verification");
-    //   // res.sendStatus(500);
-    //   // There is an error when the server send an emai that is already in the database, I'm unable to track this error
-    //   res
-    //     .status(500)
-    //     .json({ error: "Error in sending Email Verification", errorLog: err });
-    // }
+    try {
+      await sendEmail({
+        to: email,
+        from: "Luis.Chuquilin@Student.Torrens.edu.au",
+        subject: "Plesase verify your email",
+        text: `Thanls for signing up! To verify your email, please clicl here:
+           http://localhost:3000/verify-email/${verificationString}
+           `,
+      });
+    } catch (err) {
+      console.log("Error in sending Email Verification", err);
+      res
+        .status(500)
+        .json({ error: "Error in sending Email Verification", errorLog: err });
+
+      // res.sendStatus(500);
+    }
 
     // The data we want to include in the token
     jwt.sign(
@@ -78,9 +77,7 @@ export const signUpRoute = {
         isVerified: false,
       },
       // second argument, it is the secret JSON web token secret,
-      // only our server will know
       process.env.JWT_SECRET,
-      // third parameter, expiration time
       {
         expiresIn: "2d",
       },
