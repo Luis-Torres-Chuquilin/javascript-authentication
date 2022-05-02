@@ -9,7 +9,7 @@ const PORT = process.env.PORT || 8080;
 const app = express();
 
 // This allows us to access the body of POST/PUT
-// requests in our route handlers (as req.body)
+// requests in our route handlers (as req.body) // This replace the bodyParser middleware, it is already inported by express
 app.use(express.json());
 
 // Add all the routes to our Express server

@@ -1,15 +1,24 @@
 /** @format */
-import { logInRoute } from "./logInRoute";
-import { getGoogleOauthUrlRoute } from "./getGoogleOauthUrlRoute";
-import { testRoute } from "./testRoute";
-import { signUpRoute } from "./signUpRoute";
-import { updateUserInfoRoute } from "./updateUserInfoRoute";
-import { testEmailRoute } from "./testEmailRoute";
-import { verifyEmailRoute } from "./verifyEmailRoute";
-import { ForgotPassworRoute } from "./forgotPasswordRoute";
-import { resetPasswordRoute } from "./resetPasswordRoute";
+// LogIn
+import { logInRoute } from "./LogIn/logIn/logInRoute";
+// SignUP
+import { signUpRoute } from "./LogIn/signUp/signUpRoute";
+// Update User Info
+import { updateUserInfoRoute } from "./LogIn/updateUserInfo/updateUserInfoRoute";
+// Forgot Password
 
-import { googleOauthCallbackRoute } from "./googleOauthCallbackRoute";
+import { ForgotPassworRoute } from "./LogIn/resetPassword/forgotPasswordRoute";
+import { resetPasswordRoute } from "./LogIn/resetPassword/resetPasswordRoute";
+
+// GoogleOut
+import { getGoogleOauthUrlRoute } from "./LogIn/googleOauth/getGoogleOauthUrlRoute";
+import { googleOauthCallbackRoute } from "./LogIn/googleOauth/googleOauthCallbackRoute";
+import { testRoute } from "./testRoute";
+
+// Verify Email Route
+import { verifyEmailRoute } from "./LogIn/emailVerification/verifyEmailRoute";
+
+import { testEmailRoute } from "./testEmailRoute";
 
 export const routes = [
   testRoute,
