@@ -1,6 +1,6 @@
 /** @format */
 
-import { getDbConnection } from "../../../db";
+import { getDbConnection } from "../../../dbConnection/db";
 import { ObjectID } from "mongodb";
 import jwt from "jsonwebtoken";
 

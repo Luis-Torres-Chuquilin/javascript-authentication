@@ -20,6 +20,11 @@ import { verifyEmailRoute } from "./LogIn/emailVerification/verifyEmailRoute";
 
 import { testEmailRoute } from "./testEmailRoute";
 
+// Post Route
+import { allPostRoute } from "./Post/allPostRoute";
+import { createPostRoute } from "./Post/createPostRoute";
+import { updatePostRoute } from "./Post/updatePostRoute";
+
 export const routes = [
   testRoute,
   signUpRoute,
@@ -31,4 +36,8 @@ export const routes = [
   resetPasswordRoute,
   getGoogleOauthUrlRoute,
   googleOauthCallbackRoute,
+  //  Posts
+  allPostRoute,
+  createPostRoute,
+  updatePostRoute,
 ];
