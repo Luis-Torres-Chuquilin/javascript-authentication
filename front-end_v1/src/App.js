@@ -17,7 +17,6 @@ import useStyles from "./styles";
 import { useDispatch } from "react-redux";
 
 // Redux Actions
-import { getPosts } from "./actions/posts";
 
 const App = () => {
   const classes = useStyles();
@@ -29,7 +28,7 @@ const App = () => {
   const [currentId, setCurrentId] = useState(null);
 
   useEffect(() => {
-    dispatch(getPosts());
+    // dispatch(getPosts());
   }, [dispatch]);
 
   return (

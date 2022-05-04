@@ -1,6 +1,6 @@
 /** @format */
 
-import React from "react";
+import React, { useEffect } from "react";
 // Single Post component
 import { Post } from "./Post/Post";
 // styles
@@ -8,12 +8,21 @@ import useStyles from "./styles";
 import { Grid, CircularProgress } from "@material-ui/core";
 // Redux
 import { useSelector } from "react-redux";
+import { useDispatch } from "react-redux";
+import { loadTodos } from "../../statesRedux/thunksLogicSide/postsThunks";
 
 export const Posts = ({ setCurrentId }) => {
   const classes = useStyles();
-  const posts = useSelector((state) => state.posts);
 
+  // Redux State - Posts
+  const posts = useSelector((state) => state.posts.data);
+  // Redux dispatch
+  const dispatch = useDispatch();
   console.log("posts enty", posts);
+
+  useEffect(() => {
+    dispatch(loadTodos());
+  }, []);
 
   return !posts.length ? (
     <CircularProgress />

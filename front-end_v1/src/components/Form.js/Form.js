@@ -10,7 +10,7 @@ import FileBase from "react-file-base64";
 
 // Redux
 import { useDispatch, useSelector } from "react-redux";
-import { createPost, updatePost } from "../../actions/posts";
+// import { createPost, updatePost } from "../../actions/posts";
 
 export const Form = ({ currentId, setCurrentId }) => {
   const classes = useStyles();
@@ -39,9 +39,9 @@ export const Form = ({ currentId, setCurrentId }) => {
     e.preventDefault();
 
     if (currentId) {
-      dispatch(updatePost(currentId, postData));
+      // dispatch(updatePost(currentId, postData));
     } else {
-      dispatch(createPost(postData));
+      // dispatch(createPost(postData));
     }
   };
 
